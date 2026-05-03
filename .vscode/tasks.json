@@ -1,0 +1,110 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ESP-IDF: version",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py --version",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": false,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: set target esp32s3",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py set-target esp32s3",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: menuconfig",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py menuconfig",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: build",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py build",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: flash",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py -p /dev/ttyACM0 flash",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: monitor",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py -p /dev/ttyACM0 monitor",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: flash + monitor",
+      "type": "shell",
+      "command": "source /opt/esp/idf/export.sh >/dev/null && idf.py -p /dev/ttyACM0 flash monitor",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    },
+    {
+      "label": "ESP-IDF: list serial",
+      "type": "shell",
+      "command": "lsusb && echo && ls -l /dev/serial/by-id || true",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false,
+        "focus": true,
+        "showReuseMessage": false
+      }
+    }
+  ]
+}

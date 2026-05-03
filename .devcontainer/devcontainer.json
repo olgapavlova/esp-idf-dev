@@ -1,0 +1,47 @@
+{
+  "name": "esp-idf-dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "remoteUser": "ubuntu",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+  "runArgs": [
+    "--privileged",
+    "-v", "/dev:/dev",
+    "--name", "esp-idf-dev",
+    "--hostname=esp-idf-dev"
+  ],
+
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/ubuntu/.ssh,type=bind,readonly",
+    "source=${localEnv:HOME}/.gitconfig,target=/home/ubuntu/.gitconfig,type=bind,readonly",
+    "source=/run/user/1000/gnupg,target=/run/user/1000/gnupg,type=bind",
+    "source=${localEnv:HOME}/.gnupg,target=/home/ubuntu/.gnupg,type=bind",
+    "source=${localEnv:HOME}/.bashrc,target=/home/ubuntu/.bashrc,type=bind,readonly",
+    "source=${localEnv:HOME}/.terminal_init,target=/home/ubuntu/.terminal_init,type=bind,readonly"
+  ],
+  "remoteEnv": {
+      "GNUPGHOME": "/home/op/.gnupg"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "espressif.esp-idf-extension",
+        "ms-vscode.cpptools",
+        "ms-python.python"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash",
+            "args": ["-l"]
+          }
+        }
+      }
+    }
+  }
+}
